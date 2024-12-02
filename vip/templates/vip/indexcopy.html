@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if request.user.is_authenticated%}
+    <p>Welcome! {{request.user.username}}</p>
+
+    <form method="POST" action="{% url 'logout'%}">
+    {%csrf_token%}
+    <button type="submit">Logout</button>
+
+
+    </form><br>
+    <a href="{%url 'vip-create' %}">Add vip</a> |
+    <a href="{%url 'user-vip'%}">My vips</a> |
+    <a href="{%url 'user-speaker'%}">My Speakers</a> |
+    <a href="{%url 'user-profile' request.user.id%}">Profile</a> |
+    {%else%}
+<a href="{%url 'login'%}">Login</a> | 
+<a href="{%url 'register'%}">Register</a>
+    {%endif%}
+    <hr>
+    <form method="GET" action="">
+        <input type="search" name="q" placeholder="search...."/>
+        <button type="submit">search</button>     
+      
+
+    </form><a href="{%url 'vips'%}">Reset</a>
+    <h1>All  vips  </h1>
+    
+<table border="1">
+    <tr>
+        <th>vip Id</th>
+        <th>vip Title</th>
+        <th>Organizer Email</th>
+        <th>View</th>
+       
+    </tr>
+{% for vip in vips%}
+<tr>
+    <td>{{vip.id}}</td>
+    <td>{{vip.title}}</td>
+    <td>{{vip.organizer_email}}</td>
+
+    <td><a href="{% url 'vip-details' vip.slug %}" target="_new">View</a></td>
+  
+</tr>
+{%endfor%}
+</table>
+
+<span>Count:{{count}} {%if count > 1 %}
+vips
+{%else%}
+vip
+{%endif%}
+</span>
+
+
+</body>
+</html>

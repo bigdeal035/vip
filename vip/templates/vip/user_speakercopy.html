@@ -1,0 +1,39 @@
+<h2>My speakers</h2>
+<hr>
+
+<form method="GET" action="">
+    <input type="search" name="q" placeholder="search...."/>
+    <button type="submit">search</button>     
+  
+
+</form><a href="{%url 'user-speaker'%}">Reset</a>
+<h1>All Speakers  </h1>
+
+<table border="1">
+<tr>
+    <th> Id</th>
+    <th>vip Title</th>
+    <th>Name</th>
+   
+    <th>View</th>
+    <th>Edit</th>
+    <th>delete</th>
+</tr>
+{% for speaker in user_speakers%}
+<tr>
+<td>{{speaker.id}}</td>
+<td>{{speaker.vip_name}}</td>
+<td>{{speaker.name}}</td>
+<td><a href="{%url 'speaker-details' speaker.id%}"  target="_new">View</a></td>
+<td><a href="{%url 'speaker-update' speaker.id%}" target="_new">Edit</a></td>
+<td><a href="{%url 'speaker-delete' speaker.id%}"  target="_new">delete</a></td>
+</tr>
+{%endfor%}
+</table>
+
+<span>Count:{{count}} {%if count > 1 %}
+speakers
+{%else%}
+speaker
+{%endif%}
+</span>

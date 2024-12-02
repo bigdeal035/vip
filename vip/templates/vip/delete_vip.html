@@ -1,0 +1,55 @@
+
+{% extends 'vip/main.html'%}
+{%load static%}
+{%block title%}Delete {{vip}}{%endblock%}
+
+{%block service%}{%endblock%}
+{%block Banner%}{%endblock%}
+{%block project%}{%endblock%}
+{%block vip%}{%endblock%}
+{%block team%}{%endblock%}
+{%block slider%}
+<div class="container-fluid bg-primary py-5 hero-header mb-5">
+    <div class="row py-3">
+        <div class="col-12 text-center">
+            <h1 class="display-3 text-white animated zoomIn">Delete " {{vip}} "</h1>
+            <a href="" class="h4 text-white">Home</a>
+        
+            <a href="" class="h4 text-white">Delete {{vip}}</a>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+{%block about%}
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+            <form method="POST">
+                {%csrf_token%}
+                <h5 class="text-primary">Are you sure want to delete "{{vip}}"</h5>
+                <p></p>
+                <a class="btn btn-secondary" href="{% url 'user-vip' %}">Go Back</a>
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+<form method="POST">
+    {%csrf_token%}
+<p>Are you sure want to delete <b>"{{vip}}"</b></p>
+<a href="{% url 'vips' %}">Go Back</a>
+<button type="submit">Delete</button>
+</form>

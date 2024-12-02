@@ -1,0 +1,111 @@
+
+
+{% extends 'vip/main.html'%}
+{%load static%}
+
+{%block title%}create vip{%endblock%}
+
+{%block service%}{%endblock%}
+{%block start%}{%endblock%}
+{%block Banner%}{%endblock%}
+{%block project%}{%endblock%}
+{%block vip%}{%endblock%}
+{%block team%}{%endblock%}
+{%block slider%}
+<div class="container-fluid bg-primary py-5 hero-header mb-5">
+    <div class="row py-3">
+        <div class="col-12 text-center">
+            <h1 class="display-3 text-white animated zoomIn">user vip</h1>
+            <a href="{%url 'vips'%}" class="h4 text-white">Home</a>
+            <i class="far fa-circle text-white px-2"></i>
+            <a href="" class="h4 text-white">user vip</a>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+{%block about%}
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-12 text-center">
+               <h3>My vips</h3>
+
+            </div>
+        </div>
+        <div class="row g-5">
+            <div class="col-12 ">
+
+                <form method="GET" action="">
+                    <div class="input-group">
+                    <input type="search" name="q" class='form-control' placeholder="search...."/>
+                    <button type="submit" class="btn btn-secondary text-white" >search</button>     
+                  
+                    <a href="{%url 'user-vip'%}" class="btn btn-warning text-white" >Reset</a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row g-5">
+              <div class="col-12 ">
+  
+                  <h1>All  vips  </h1>
+                
+                   <table class="table table-bordered table-striped text-center rounded">
+                    <tr>
+                      <th>vip Id</th>
+                      <th>vip Title</th>
+                      <th>Organizer Email</th>
+                      <th>Participants</th>
+                      <th>Speakers</th>
+                      <th>View</th>
+                      <th>Edit</th>
+                     <th>delete</th>
+                    </tr>
+                    {% for vip in user_vips%}
+                     <tr>
+                     <td>{{vip.id}}</td>
+                     <td>{{vip.title}}</td>
+                     <td>{{vip.organizer_email}}</td>
+                     <td><a href="{% url 'participants' vip.id %}" target="_new">Participants</a></td>
+                     <td><a href="{% url 'add-speaker' vip.slug %}" target="_new">Add </a></td>
+                     <td><a href="{% url 'vip-details' vip.slug %}" target="_new">View</a></td>
+                     <td><a href="{% url 'vip-update' vip.slug %}"  target="_new">Edit</a></td>
+                     <td><a href="{% url 'vip-delete' vip.slug %}"  target="_new">delete</a></td>
+                     </tr>
+                     {%endfor%}
+                    </table>
+                                
+                    <span>Count:{{count}} {%if count > 1 %}
+                    vips
+                    {%else%}
+                    vip
+                    {%endif%}
+                    </span>
+                 </div>
+               </div>
+        </div>
+    </div>
+</div>
+                 
+{%endblock%}                             
+                            
+                
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

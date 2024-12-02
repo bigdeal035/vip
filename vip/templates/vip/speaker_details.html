@@ -1,0 +1,76 @@
+{% extends 'vip/main.html'%}
+{%load static%}
+
+
+{%block title%}{{vip.title}}{%endblock%}
+
+{%block service%}{%endblock%}
+{%block start%}{%endblock%}
+{%block Banner%}{%endblock%}
+{%block project%}{%endblock%}
+{%block vip%}{%endblock%}
+{%block team%}{%endblock%}
+{%block slider%}
+<div class="container-fluid bg-primary py-5 hero-header mb-5">
+    <div class="row py-3">
+        <div class="col-12 text-center">
+            <h1 class="display-3 text-white animated zoomIn">{{vip.title}}</h1>
+            <a href="" class="h4 text-white">Home</a>
+            <i class="far fa-circle text-white px-2">vip details</i>
+            <a href="" class="h4 text-white">{{vip.title}}</a>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+{%block about%}
+
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row g-5 mb-5">
+            <div class="col-lg-5 wow zoomIn" data-wow-delay="0.3s" style="min-height: 400px;">
+                <div class="twentytwenty-container position-relative h-100 rounded overflow-hidden">
+                    <img class="position-absolute w-100 h-100" src="{{speaker.image.url}}" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100" src="img/after.jpg" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-5 wow zoomIn" data-wow-delay="0.3s" style="min-height: 400px;">
+                <h5 class="text-primary">About Speaker</h5>
+                <h1 class="mb-4">{{speaker.name}}</h1>
+                <h3 class="mb-4">For vip : {{speaker.vip_name}}</h3>
+                <p>For vip : {{speaker.vip_name}}</p>
+                    <p>Email:{{speaker.email}}</p>
+                 
+                    <p>bio:{{speaker.bio}}</p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+{%block about%}
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row g-5 mb-5">
+            <div class="col-lg-5 wow zoomIn" data-wow-delay="0.3s" style="min-height: 400px;">
+                <div class="twentytwenty-container position-relative h-100 rounded overflow-hidden">
+                    <img class="position-absolute w-100 h-100" src="{{speaker.image.url}}" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100" src="img/after.jpg" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-5 wow zoomIn" data-wow-delay="0.3s" style="min-height: 400px;">
+                <h5 class="text-primary">About Speaker</h5>
+                <h1 class="mb-4">{{speaker.name}}</h1>
+                <h3 class="mb-4">For vip : {{speaker.vip_name}}</h3>
+                <p>For vip : {{speaker.vip_name}}</p>
+                    <p>Email:{{speaker.email}}</p>
+                 
+                    <p>bio:{{speaker.bio}}</p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

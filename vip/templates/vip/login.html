@@ -1,0 +1,58 @@
+
+{% extends 'vip/main.html'%}
+{%load static%}
+{%block title%}create vip{%endblock%}
+
+{%block service%}{%endblock%}
+{%block Banner%}{%endblock%}
+{%block project%}{%endblock%}
+{%block vip%}{%endblock%}
+{%block team%}{%endblock%}
+{%block slider%}
+<div class="container-fluid bg-primary py-5 hero-header mb-5">
+    <div class="row py-3">
+        <div class="col-12 text-center">
+            <h1 class="display-3 text-white animated zoomIn">Login</h1>
+            <a href="{%url 'vips'%}" class="h4 text-white">Home</a>
+            <i class="far fa-circle text-white px-2"></i>
+            <a href="" class="h4 text-white">Login</a>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+{%block about%}
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-12 text-center">
+               <h3>Login into your account</h3>
+
+            </div>
+        </div>
+        <div class="row g-5">
+            <div class="col-md-6  mx-auto text-center">
+                        <section class="container-fluid py-5">
+                            <div class="login-container">
+                                <div class="circle circle-one"></div>
+                                <div class="form-container">
+                                    <form method="POST">
+                                        {%csrf_token%}
+                                        <label class="label-control" >Email: </label>
+                                        <input type="email" class="form-control my-2" required placeholder=" USERNAME" name="email"/>
+                                        
+                                        <label class="label-control" >password: </label>
+                                        <input type="password" class="form-control my-2" required placeholder="PASSWORD" name="password"/>
+                                        <button type="submit" class="btn btn-primary">Login</button>
+                                    </form>
+                                </div>   
+                                </div>
+                                <div class="circle circle-two"></div>
+                            </div>
+                            <div class="theme-btn-container"></div>
+                        </section>
+                        
+            </div> 
+            </div>
+        </div>
+{%endblock%}

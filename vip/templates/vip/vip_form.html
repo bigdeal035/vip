@@ -1,0 +1,51 @@
+{% extends 'vip/main.html'%}
+{%load static%}
+{%load crispy_forms_filters%}
+
+{%load crispy_forms_tags%}
+
+{%block title%}create vip{%endblock%}
+
+{%block service%}{%endblock%}
+{%block start%}{%endblock%}
+{%block Banner%}{%endblock%}
+{%block project%}{%endblock%}
+{%block vip%}{%endblock%}
+{%block team%}{%endblock%}
+{%block slider%}
+<div class="container-fluid bg-primary py-5 hero-header mb-5">
+    <div class="row py-3">
+        <div class="col-12 text-center">
+            <h1 class="display-3 text-white animated zoomIn">Add vip</h1>
+            <a href="" class="h4 text-white">Home</a>
+            <i class="far fa-circle text-white px-2"> Create vip</i>
+            <a href="" class="h4 text-white"></a>
+            
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+{%block about%}
+<div class="container-fluid py-5 ">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-12   text-center">
+               <h3>Fill the form to create a new vip</h3>
+
+            </div>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-6 mx-auto ">
+                <form  method="POST"   enctype="multipart/form-data">
+                    
+                    {%csrf_token%}
+                    {{form| crispy}}
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

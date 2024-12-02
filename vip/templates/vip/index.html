@@ -1,0 +1,45 @@
+{% extends 'vip/main.html'%}
+{%load static%}
+{%block title%}Home{%endblock%}
+{%block about%}{%endblock%}
+{%block service%}{%endblock%}
+{%block team%}{%endblock%}
+{%block project%}{%endblock%}
+{%block slider%}{%endblock%}
+{%block Banner%}{%endblock%}
+
+{%block vip%}
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+            <h4 class="text-primary">Our Events</h4>
+            <h1>Latest vips</h1>
+        </div>
+        <div class="row g-5 justify-content-center">
+            {% for vip in vips%}
+            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                <div class="team-item">
+                    <div class="position-relative rounded-top" style="z-index: 1;">
+                        <img class="img-fluid rounded-top w-100" src="{{vip.image.url}}" alt="">
+                        <div class="position-absolute top-100 start-50 translate-middle bg-light rounded p-2 d-flex"><span>{{vip.title | title}}</span>
+                            <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-text position-relative bg-light text-center rounded-bottom p-4 pt-5">
+                       <a href="{% url 'vip-details' vip.slug %}" class="btn btn-primary py-3 px-5">Read More</a>
+                    </div>   
+                    <div class="team-text position-relative bg-light text-center rounded-bottom p-4 pt-5">
+                        <span class="text-secondary">{{vip.vip_date}}</span>
+                        <p class="py-2">{{vip.description | truncatewords:8}}</p>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+{%endblock%}

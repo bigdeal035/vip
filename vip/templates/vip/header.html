@@ -1,0 +1,95 @@
+ <!-- Topbar Start -->
+ <div class="container-fluid bg-light ps-5 pe-0 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center">
+                <small class="py-2"><i class="far fa-clock text-primary me-2"></i>Opening Hours: Mon - Tues : 6.00 am - 10.00 pm, Sunday Closed </small>
+            </div>
+        </div>
+        <div class="col-md-6 text-center text-lg-end">
+            <div class="position-relative d-inline-flex align-items-center bg-primary text-white top-shape px-5">
+                <div class="me-3 pe-3 border-end py-2">
+                    {% if request.user.is_authenticated%}
+                    <p class="m-0"><i class="fa fa-envelope-open me-2"></i>Welcome! {{request.user.username}}</p>
+                    {%endif%}
+                </div>
+                <div class="py-2">
+                    <p class="m-0"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</p>
+                    {%if request.user.is_authenticated%}
+                    <form method="POST" action="{% url 'logout'%}">
+                        {%csrf_token%}
+                        <button type="submit" class="bg-primary rounded btn-sm px-1 ms-1 text-white">Logout</button>
+                    </form>
+                    {%endif%}
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- Topbar End -->
+
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+    <a href="{%url 'vips'%}" class="navbar-brand p-0">
+        <h1 class="m-0 text-primary"></i>VIP</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    
+    
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+            <a href="{%url 'vips'%}" class="nav-item nav-link active">Home</a>
+            <a href="{% url 'contact'%}" class="nav-item nav-link">Contact</a>
+        {%if request.user.is_authenticated%}
+            <a href="{%url 'vip-create' %}" class="nav-item nav-link">Add vip</a>
+            <a href="{%url 'user-vip'%}" class="nav-item nav-link">My vips</a>
+            <a href="{%url 'user-speaker'%}" class="nav-item nav-link">My Speakers</a>
+            <a href="{%url 'user-profile'%}" class="nav-item nav-link">Profile</a>
+            {%else%}
+            <a href="{%url 'login'%}" class="nav-item nav-link">Login</a>
+            <a href="{%url 'register'%}" class="nav-item nav-link">Register</a>
+            <a href="{%url 'vip-create'%}" class="nav-item nav-link">Add vip</a>
+        {%endif%}
+            
+        
+            
+             <!-- <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu m-0"> -->
+                    <!-- <a href="price.html" class="dropdown-item">Pricing Plan</a>
+                    <a href="team.html" class="dropdown-item">Our Dentist</a> -->
+                    <!-- <a href="testimonial.html" class="dropdown-item">Testimonial</a> -->
+                    <!-- <a href="appointment.html" class="dropdown-item">Appointment</a> -->
+                </div>
+            </div> 
+        </div>
+        <!-- <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+        <a href="appointment.html" class="btn btn-primary py-2 px-4 ms-3">Appointment</a> -->
+    </div>
+</nav>
+
+<!-- Navbar End -->
+
+
+<!-- Full Screen Search Start
+<div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+            <div class="modal-header border-0">
+                <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center">
+                <div class="input-group" style="max-width: 600px;">
+                    <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
+                    <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+Full Screen Search End -->

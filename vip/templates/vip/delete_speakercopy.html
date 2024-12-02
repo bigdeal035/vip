@@ -1,0 +1,7 @@
+<form method="POST">
+    {%csrf_token%}
+    <h5 class="text-primary">Are you sure want to delete "{{speaker}}"</h5>
+    <p></p>
+    <a class="btn btn-secondary" href="{% url 'user-speaker' %}">Go Back</a>
+    <button class="btn btn-danger" type="submit">Delete</button>
+</form>

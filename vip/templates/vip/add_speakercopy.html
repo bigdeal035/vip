@@ -1,0 +1,10 @@
+<h2>Add Speakers</h2>
+<h4>vip Name - {{vip.title}}</h4>
+<form method="POST" enctype="multipart/form-data">
+
+{%csrf_token%}
+
+{{form.as_p}}
+
+<button type="submit">Add Speaker</button>
+</form>

@@ -1,0 +1,91 @@
+{% extends 'vip/main.html'%}
+{%load static%}
+{%load crispy_forms_filters%}
+
+{%load crispy_forms_tags%}
+
+{%block title%}{{vip.title}}{%endblock%}
+
+{%block service%}{%endblock%}
+{%block start%}{%endblock%}
+{%block Banner%}{%endblock%}
+{%block project%}{%endblock%}
+{%block vip%}{%endblock%}
+{%block slider%}
+<div class="container-fluid bg-primary py-5 hero-header mb-5">
+    <div class="row py-3">
+        <div class="col-12 text-center">
+            <h1 class="display-3 text-white animated zoomIn">{{vip.title}}</h1>
+            <a href="" class="h4 text-white">Home</a>
+            <i class="far fa-circle text-white px-2">vip details</i>
+            <a href="" class="h4 text-white">{{vip.title}}</a>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+{%block about%}
+
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row g-5 mb-5">
+            <div class="col-lg-5 wow zoomIn" data-wow-delay="0.3s" style="min-height: 400px;">
+                <div class="twentytwenty-container position-relative h-100 rounded overflow-hidden">
+                    <img class="position-absolute w-100 h-100" src="{{vip.image.url}}" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100" src="img/after.jpg" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-5 wow zoomIn" data-wow-delay="0.3s" style="min-height: 400px;">
+                <h5 class="text-primary">About The Event</h5>
+                <h1 class="mb-4">{{vip.title}}</h1>
+                <h3 class="mb-4">{{vip.description}}</h3>
+                
+                    
+                <h3 class="mt-2">Fill in the form to book reservation</h3>
+                <form method="POST">
+                {%csrf_token%}
+                {{form| crispy}}
+                <button class="btn btn-secondary  px-2 py-2 text-white">send</button>
+                </form>
+               
+
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+{%block team%}
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.1s">
+                <div class="section-title bg-light rounded h-100 p-5">
+                    <h5 class="position-relative d-inline-block text-primary text-uppercase">Guest Speakers</h5>
+                    <h1 class="display-6 mb-4  text-center " >Meet our guest speakers</h1>
+                </div>
+            </div>
+            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                {%for speaker in speakers%}
+                 <div class="team-item">
+                    <div class="position-relative rounded-top" style="z-index: 1;">
+                        <img class="img-fluid rounded-top w-100" src="{% static 'vip/img/team-1.jpg'%}" alt="">
+                        <div class="position-absolute top-100 start-50 translate-middle bg-light rounded p-2 d-flex">
+                            <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square m-1" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-text position-relative bg-light text-center rounded-bottom p-4 pt-5">
+                        <h4 class="mb-2">{{speaker.name}}</h4>
+            
+                    </div>
+                 </div>
+                
+                {%endfor%}
+                </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}               
